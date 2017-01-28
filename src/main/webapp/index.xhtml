@@ -57,11 +57,6 @@
 			<p:ajax event="select" listener="#{basicTimelineView.onSelect}" />
 
 		</p:timeline>
-				<p:chart type="line" model="#{basicTimelineView.dateModel}"
-			style="height:100px;">
-			<p:ajax event="itemSelect"
-				listener="#{basicTimelineView.chartItemSelect}" update="timeline" />
-		</p:chart>
 
 		<p:dialog header="#{basicTimelineView.storyDate}" widgetVar="dlg2"
 			modal="true" width="300" appendToBody="false" id="storyDialog">
