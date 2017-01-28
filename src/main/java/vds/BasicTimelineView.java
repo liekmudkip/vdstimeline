@@ -24,6 +24,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.apache.log4j.Logger;
 import org.primefaces.event.ItemSelectEvent;
 import org.primefaces.event.timeline.TimelineSelectEvent;
 import org.primefaces.model.chart.AxisType;
@@ -78,9 +79,11 @@ public class BasicTimelineView implements Serializable {
 	HashMap<String, Categories> catMap;
 	HashMap<String, LineChartSeries> serMap;
 	HashMap<String, Stories> storMap;
-
+	static Logger logger;
+	
 	@PostConstruct
 	protected void initialize() {
+		logger = Logger.getLogger(BasicTimelineView.class);
 		dateModel = new LineChartModel();
 		format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		model = new TimelineModel();
@@ -93,8 +96,8 @@ public class BasicTimelineView implements Serializable {
 			JsonReader reader = new JsonReader(new InputStreamReader(new FileInputStream(file), "UTF8"));
 			data = gson.fromJson(reader, timelindeDataType);
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("could not load jsnon file because : "+e.getMessage()+" "+e.getStackTrace());
+
 		}
 		catMap = new HashMap<String, Categories>();
 		serMap = new HashMap<String, LineChartSeries>();
