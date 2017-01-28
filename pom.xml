@@ -4,7 +4,7 @@
 	<groupId>vds</groupId>
 	<artifactId>vds</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0</version>
 	<name>vds</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
@@ -62,7 +62,6 @@
 						<source>1.8</source>
 						<target>1.8</target>
 					<outputDirectory>deployments</outputDirectory>
-              		  <warName>ROOT</warName>
 					</configuration>
 				</plugin>
 			</plugins>
