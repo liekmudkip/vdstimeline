@@ -83,9 +83,9 @@ public class BasicTimelineView implements Serializable {
 	
 	@PostConstruct
 	protected void initialize() {
+		logger = Logger.getLogger(BasicTimelineView.class);
 		try {
 		logger.info("post construct called");
-		logger = Logger.getLogger(BasicTimelineView.class);
 		dateModel = new LineChartModel();
 		format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		model = new TimelineModel();
