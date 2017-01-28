@@ -57,6 +57,23 @@
 			<p:ajax event="select" listener="#{basicTimelineView.onSelect}" />
 
 		</p:timeline>
+				<p:chart type="line" model="#{basicTimelineView.dateModel}"
+			style="height:100px;">
+			<p:ajax event="itemSelect"
+				listener="#{basicTimelineView.chartItemSelect}" update="timeline" />
+		</p:chart>
+
+		<p:dialog header="#{basicTimelineView.storyDate}" widgetVar="dlg2"
+			modal="true" width="300" appendToBody="false" id="storyDialog">
+			<p:panelGrid columns="1" layout="grid" style="text-align: left;"
+				styleClass="noborder">
+				<strong><h:outputText
+						value="#{basicTimelineView.storyTitle}" /></strong>
+				<h:outputText value="#{basicTimelineView.storyText}" />
+				<p:link href="#{basicTimelineView.link}" value="Link to Source"
+					target="_blank" rendered="#{basicTimelineView.linkRendered}" />
+			</p:panelGrid>
+		</p:dialog>
 	</h:form>
 	<style type="text/css">
 .ui-widget {
